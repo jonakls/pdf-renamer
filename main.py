@@ -21,16 +21,22 @@ def comparate(csv_value, files):
     if len(csv_value) > 2:
         print('Los valores de el archivo csv no corresponden, por favor revisa')
         return
-    if len(csv_value) < 2:
+    if len(csv_value) < 1:
         print('Los valores de el archivo csv no corresponden, por favor revisa')
         return
     for file in files:
-        if csv_value[0] == file.split('.')[0]:
-            renamePdf(file, csv_value[1])
+        if csv_value[0].__contains__(';'):
+            if csv_value[0].split(';')[0] == file.split('.')[0]:
+                renamePdf(file, csv_value[0].split(';')[1])
+                return
+        if csv_value[0].__contains__(','):
+            if csv_value[0].split(',')[0] == file.split('.')[0]:
+                renamePdf(file, csv_value[0].split(',')[1])
+                return
 
 def renamePdf(file, new_name):
     files_renamed = os.listdir(files_directory_renamed)
-    if len(files_renamed) > 0 :
+    if len(files_renamed) > len(files_directory) :
         print('La carpeta renamed se necesita vacia')
         return
     os.rename(files_directory + str('\\') + file, files_directory_renamed + str('\\') + new_name + str('.pdf'))
