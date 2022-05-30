@@ -18,6 +18,12 @@ def main():
             comparate(row, files)
 
 def comparate(csv_value, files):
+    if len(csv_value) > 2:
+        print('Los valores de el archivo csv no corresponden, por favor revisa')
+        return
+    if len(csv_value) < 2:
+        print('Los valores de el archivo csv no corresponden, por favor revisa')
+        return
     for file in files:
         if csv_value[0] == file.split('.')[0]:
             renamePdf(file, csv_value[1])
