@@ -14,6 +14,7 @@ def main():
         return
     with open(csv_file, newline='') as File:
         reader = csv.reader(File)
+        print('Iniciando proceso con ' + str(len(reader)) + ' valores en csv')
         for row in reader:
             comparate(row, files)
 
@@ -35,11 +36,8 @@ def comparate(csv_value, files):
                 return
 
 def renamePdf(file, new_name):
-    files_renamed = os.listdir(files_directory_renamed)
-    if len(files_renamed) > len(files_directory) :
-        print('La carpeta renamed se necesita vacia')
-        return
     os.rename(files_directory + str('\\') + file, files_directory_renamed + str('\\') + new_name + str('.pdf'))
+    print('Archivo ' + str(file) + ' renombrado a: ' + str(new_name))
 
 def create_directories():
     if not os.path.exists(files_directory):
