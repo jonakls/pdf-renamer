@@ -27,7 +27,7 @@ def comparate(csv_value, files):
         return
     for file in files:
         if csv_value[0].__contains__(';'):
-            if csv_value[0].split(';')[0] == file.split('.')[0]:
+            if csv_value[0].split(';')[0] == file.split('.pdf')[0]:
                 renamePdf(file, csv_value[0].split(';')[1])
                 return
         if csv_value[0].__contains__(','):
