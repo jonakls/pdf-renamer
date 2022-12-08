@@ -1,7 +1,7 @@
 import csv
 import os
 
-root_directory = os.getcwd();
+root_directory = os.getcwd()
 files_directory = root_directory + str('\\files')
 files_directory_renamed = root_directory + str('\\renamed')
 csv_file = root_directory + str('\\read.csv')
