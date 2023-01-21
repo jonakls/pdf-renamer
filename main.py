@@ -15,7 +15,7 @@ def main():
         return
     with open(csv_file, newline='') as File:
         reader = csv.reader(File)
-        print('Iniciando proceso con ' + str(len(reader)) + ' valores en csv')
+        print('Iniciando proceso con ' + str(reader.__sizeof__()) + ' valores en csv')
         for row in reader:
             evaluate_files(row, files)
 
